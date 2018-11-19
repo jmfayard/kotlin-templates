@@ -1,14 +1,17 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-repositories {
-    maven { url = uri("https://dl.bintray.com/kotlin/ktor") }
-    maven { url = uri("https://dl.bintray.com/kotlin/kotlin-eap") }
-}
-
 plugins {
     kotlin(module = "jvm") version "1.3.10"
     application
 }
+
+
+repositories {
+    jcenter()
+    maven("https://dl.bintray.com/kotlin/ktor")
+    maven("https://dl.bintray.com/kotlin/kotlin-eap")
+}
+
+
 
 application {
     mainClassName = "org.example.webstack.MainKt"
@@ -31,6 +34,6 @@ val run by tasks.getting {
     doLast { println("Server ready.") }
 }
 
-tasks.withType<KotlinCompile>().all {
+tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
