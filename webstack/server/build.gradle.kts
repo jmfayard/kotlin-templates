@@ -6,6 +6,8 @@ plugins {
     application
 }
 
+/** UNCOMMENT ME **/
+//println(Config.hello)
 
 repositories {
     jcenter()
@@ -13,13 +15,9 @@ repositories {
     maven("https://dl.bintray.com/kotlin/kotlin-eap")
 }
 
-
-
 application {
     mainClassName = "org.example.webstack.MainKt"
 }
-
-
 
 dependencies {
     val kotlinVer = "1.3.10"
