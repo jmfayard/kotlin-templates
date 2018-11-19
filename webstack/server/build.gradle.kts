@@ -1,6 +1,8 @@
+
+
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
-    kotlin(module = "jvm") version "1.3.10"
+    kotlin(module = "jvm") version("1.3.10")
     application
 }
 
@@ -17,10 +19,13 @@ application {
     mainClassName = "org.example.webstack.MainKt"
 }
 
+
+
 dependencies {
     val kotlinVer = "1.3.10"
     val ktorVer = "1.0.0-rc"
     val log4jVer = "1.7.25"
+
     implementation(kotlin(module = "stdlib-jdk8", version = kotlinVer))
     implementation("io.ktor:ktor-html-builder:$ktorVer")
     implementation("io.ktor:ktor-server-netty:$ktorVer")
@@ -31,7 +36,10 @@ dependencies {
 
 val run by tasks.getting {
     doFirst { println("Starting server...") }
-    doLast { println("Server ready.") }
+    doLast {
+        println("Server ready.")
+
+    }
 }
 
 tasks.withType<KotlinCompile> {
